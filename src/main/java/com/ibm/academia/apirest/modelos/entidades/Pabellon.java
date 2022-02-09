@@ -35,7 +35,7 @@ public class Pabellon implements Serializable {
     })
     private Direccion direccion;
 
-    @Column(name = "usuarios_creacion", nullable = false)
+    @Column(name = "usuario_creacion", nullable = false)
     private String usuarioCreacion;
 
     @Column(name = "fecha_creacion", nullable = true)

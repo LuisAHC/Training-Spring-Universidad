@@ -39,7 +39,7 @@ public class Aula implements Serializable {
     @JoinColumn(name = "pabellon_id", foreignKey = @ForeignKey(name = "FK_PABELLON_ID"))
     private Pabellon pabellon;
 
-    @Column(name = "usuarios_creacion", nullable = false)
+    @Column(name = "usuario_creacion", nullable = false)
     private String usuarioCreacion;
 
     @Column(name = "fecha_creacion", nullable = true)
