@@ -13,22 +13,19 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class AlumnoDAOImpl extends PersonaDAOImpl implements AlumnoDAO{
     @Autowired
-    public AlumnoDAOImpl(@Qualifier("repositorioAlumnos") PersonaRepository repository)
-    {
+    public AlumnoDAOImpl(@Qualifier("repositorioAlumnos") PersonaRepository repository) {
         super(repository);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Iterable<Persona> buscarAlumnoPorNombreCarrera(String nombre)
-    {
+    public Iterable<Persona> buscarAlumnoPorNombreCarrera(String nombre){
         return ((AlumnoRepository)repository).buscarAlumnoPorNombreCarrera(nombre);
     }
 
     @Override
     @Transactional
-    public Persona actualizar(Persona alumnoEncontrado, Persona alumno)
-    {
+    public Persona actualizar(Persona alumnoEncontrado, Persona alumno){
         Persona alumnoActualizado;
         alumnoEncontrado.setNombre(alumno.getNombre());
         alumnoEncontrado.setApellido(alumno.getApellido());
@@ -39,8 +36,7 @@ public class AlumnoDAOImpl extends PersonaDAOImpl implements AlumnoDAO{
 
     @Override
     @Transactional
-    public Persona asociarCarreraAlumno(Persona alumno, Carrera carrera)
-    {
+    public Persona asociarCarreraAlumno(Persona alumno, Carrera carrera){
         ((Alumno)alumno).setCarrera(carrera);
         return repository.save(alumno);
     }

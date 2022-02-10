@@ -24,12 +24,6 @@ public class TestUniversidad implements CommandLineRunner{
     @Override
     public void run(String... args) throws RuntimeException{
 
-        /*Direccion direccionProfesor = new Direccion("Calle algo", "16", "0001", "105", "55444", "Ciudad de México");
-        BigDecimal sueldoProfesor = BigDecimal.valueOf(50000.00);
-        Persona profesor = new Profesor(null, "242256790", "Israel", "Müller", direccionProfesor, sueldoProfesor, "luisceciliano");
-        Persona personaProfesor = profesorDao.guardar(profesor);
-        System.out.println(personaProfesor.toString());*/
-
         //TODO CREATE
         /*Carrera ingenieriaSistemas = new Carrera(null, "sistemas", 60, 5, "luisceciliano");
         Carrera carrera = carreraDao.guardar(ingenieriaSistemas);
