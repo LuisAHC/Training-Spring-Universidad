@@ -1,10 +1,8 @@
 package com.ibm.academia.apirest.modelos.entidades;
 
 import com.ibm.academia.apirest.enumeradores.TipoEmpleado;
-import com.ibm.academia.apirest.servicios.CarreraDAO;
-import com.ibm.academia.apirest.servicios.EmpleadoDAO;
-import com.ibm.academia.apirest.servicios.PersonaDAO;
-import com.ibm.academia.apirest.servicios.ProfesorDAO;
+import com.ibm.academia.apirest.enumeradores.TipoPizarron;
+import com.ibm.academia.apirest.servicios.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
@@ -31,6 +29,12 @@ public class PruebaSemana3 implements CommandLineRunner {
 
     @Autowired
     private EmpleadoDAO empleadoDao;
+
+    @Autowired
+    private AulaDAO aulaDao;
+
+    @Autowired
+    private PabellonDAO pabellonDao;
 
     @Override
     public void run(String... args) throws RuntimeException {
@@ -78,6 +82,34 @@ public class PruebaSemana3 implements CommandLineRunner {
         // pruebas a CarreraRepository
         /*List<Carrera> carrerasPorNombreYApellidoProfesor = (List<Carrera>) carreraDao.buscarCarrerasPorProfesorNombreYApellido("Israel", "Müller");
         carrerasPorNombreYApellidoProfesor.forEach(System.out::println);*/
+
+        // pruebas a PabellonRepository y PabellonDAO
+        /*Direccion direccionPabellon = new Direccion("Caminos", "12", "0000", "000", "21211", "Barcelona");
+        Pabellon pabellon = new Pabellon(null, 500.0, "Kala", direccionPabellon, "luisceciliano");
+        pabellonDao.guardar(pabellon);
+
+        List<Pabellon> pabellonPorDireccion = (List<Pabellon>) pabellonDao.findPabellonsByDireccion_Localidad("Barcelona");
+        pabellonPorDireccion.forEach(System.out::println);
+
+        List<Pabellon> pabellonPorNombre = (List<Pabellon>) pabellonDao.findPabellonsByNombre("Kala");
+        pabellonPorDireccion.forEach(System.out::println);*/
+
+        // pruebas a AulaRepository y AulaDAO
+        /*TipoPizarron tipoPizarron = TipoPizarron.PIZARRA_BLANCA;
+        Aula aula = new Aula(null, 1, 30.0, 18, tipoPizarron, null, "luisceciliano");
+        aulaDao.guardar(aula);*/
+
+
+        /*List<Pabellon> pabellonPorNombre = (List<Pabellon>) pabellonDao.findPabellonsByNombre("Kala");
+        List<Aula> aulasPorTipoPizarra = (List<Aula>) aulaDao.findAulasByTipoPizarron(TipoPizarron.PIZARRA_BLANCA);
+        aulasPorTipoPizarra.forEach(aula -> {
+            aula.setPabellon(pabellonPorNombre.get(0));
+            aulaDao.guardar(aula);
+        });*/
+
+        /*List<Aula> aulasPorNombrePabellon = (List<Aula>) aulaDao.findAulasByPabellonNombre("Kala");
+        aulasPorNombrePabellon.forEach(System.out::println);*/
+
 
     }
 }

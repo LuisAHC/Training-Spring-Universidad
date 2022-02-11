@@ -23,13 +23,13 @@ public class Aula implements Serializable {
     private Long id;
 
     @Column(name = "numero_aula")
-    private String numeroAula;
+    private Integer numeroAula;
 
     @Column(name = "metros_cuadrados")
-    private String metros_cuadrados;
+    private Double metros_cuadrados;
 
     @Column(name = "cantidad_pupitres")
-    private String cantidadPupitres;
+    private Integer cantidadPupitres;
 
     @Column(name = "tipo_pizarron")
     @Enumerated(EnumType.STRING)
@@ -48,7 +48,7 @@ public class Aula implements Serializable {
     @Column(name = "fecha_modificacion", nullable = true)
     private Date fechaModificacion;
 
-    public Aula(Long id, String numeroAula, String metros_cuadrados, String cantidadPupitres, TipoPizarron tipoPizarron, Pabellon pabellon, String usuarioCreacion) {
+    public Aula(Long id, Integer numeroAula, Double metros_cuadrados, Integer cantidadPupitres, TipoPizarron tipoPizarron, Pabellon pabellon, String usuarioCreacion) {
         this.id = id;
         this.numeroAula = numeroAula;
         this.metros_cuadrados = metros_cuadrados;
