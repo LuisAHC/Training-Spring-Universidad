@@ -126,5 +126,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:5.3.15" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.xmlunit:xmlunit-core:2.8.4" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.mockito:mockito-all:2.0.2-beta" level="project" />
+    <orderEntry type="library" name="Maven: junit:junit:3.8.1" level="project" />
   </component>
 </module>
