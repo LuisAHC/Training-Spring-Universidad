@@ -4,7 +4,7 @@ import com.ibm.academia.apirest.modelos.entidades.Pabellon;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
+@Repository("repositorioPabellones")
 public interface PabellonRepository extends CrudRepository<Pabellon, Long>{
     public Iterable<Pabellon> findPabellonsByDireccion_Localidad(String localidad);
     public Iterable<Pabellon> findPabellonsByNombre(String nombre);

@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
+@Repository("repositorioAulas")
 public interface AulaRepository extends CrudRepository<Aula, Long> {
     public Iterable<Aula> findAulasByTipoPizarron(TipoPizarron tipoPizarron);
     public Iterable<Aula> findAulasByPabellon(Pabellon pabellon);
