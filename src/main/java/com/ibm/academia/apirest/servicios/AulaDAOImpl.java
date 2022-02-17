@@ -30,7 +30,7 @@ public class AulaDAOImpl extends GenericoDAOImpl<Aula, AulaRepository> implement
     }
 
     @Override
-    public Aula findAulaByNumeroAula(String numeroAula) {
+    public Aula findAulaByNumeroAula(Integer numeroAula) {
         return repository.findAulaByNumeroAula(numeroAula);
     }
 }

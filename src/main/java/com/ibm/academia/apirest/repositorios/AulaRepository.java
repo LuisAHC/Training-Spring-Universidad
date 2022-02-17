@@ -15,5 +15,5 @@ public interface AulaRepository extends CrudRepository<Aula, Long> {
     @Query("select a from Aula a join a.pabellon p where p.nombre = ?1")
     public Iterable<Aula> findAulasByPabellonNombre(String nombrePabellon);
 
-    public Aula findAulaByNumeroAula(String numeroAula);
+    public Aula findAulaByNumeroAula(Integer numeroAula);
 }
