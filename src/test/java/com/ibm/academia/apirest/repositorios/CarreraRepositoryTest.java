@@ -51,9 +51,9 @@ public class CarreraRepositoryTest {
 	@DisplayName("Test: Buscar carreras por nombre NO case sensitive")
 	void findCarrerasByNombreContainsIgnoreCase() {
 		//Given
-		/*carreraRepository.save(DatosDummy.carrera01());
+		carreraRepository.save(DatosDummy.carrera01());
 		carreraRepository.save(DatosDummy.carrera02());
-		carreraRepository.save(DatosDummy.carrera03());*/
+		carreraRepository.save(DatosDummy.carrera03());
 		
 		//When
 		List<Carrera> expected = (List<Carrera>) carreraRepository.findCarrerasByNombreContainsIgnoreCase("sistemas");
