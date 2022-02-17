@@ -13,7 +13,8 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "profesores", schema = "universidad")
+//@Table(name = "profesores", schema = "universidad")
+@Table(name = "profesores")
 @PrimaryKeyJoinColumn(name = "persona_id")
 public class Profesor extends Persona implements Serializable {
     @Column(name = "sueldo", nullable = false)

@@ -1,4 +1,4 @@
-package com.ibm.academia.apirest.modelos.entidades;
+package com.ibm.academia.apirest;
 
 import com.ibm.academia.apirest.enumeradores.TipoEmpleado;
 import com.ibm.academia.apirest.enumeradores.TipoPizarron;

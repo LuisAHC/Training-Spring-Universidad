@@ -15,7 +15,8 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "aulas", schema = "universidad")
+//@Table(name = "aulas", schema = "universidad")
+@Table(name = "aulas")
 public class Aula implements Serializable {
     @Id
     @Column(name = "id", nullable = false)
