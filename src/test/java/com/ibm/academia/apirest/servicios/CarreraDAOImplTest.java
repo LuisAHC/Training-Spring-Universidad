@@ -81,4 +81,15 @@ public class CarreraDAOImplTest
 
         verify(carreraRepository).findCarrerasByCantidadAniosAfter(cantidad);
 	}
+
+	@Test
+	@DisplayName("Test: Buscar carreras por nombre y apellido de profesor")
+	void buscarCarrerasPorProfesorNombreYApellido(){
+		//When
+		List<Carrera> expected = (List<Carrera>) carreraDao.buscarCarrerasPorProfesorNombreYApellido("Luis", "Ceciliano");
+
+		//Then
+
+		verify(carreraRepository).buscarCarrerasPorProfesorNombreYApellido("Luis", "Ceciliano");
+	}
 }
