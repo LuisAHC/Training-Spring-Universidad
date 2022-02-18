@@ -16,8 +16,7 @@ import org.junit.jupiter.api.Test;
 import com.ibm.academia.apirest.modelos.entidades.Carrera;
 import com.ibm.academia.apirest.repositorios.CarreraRepository;
 
-public class CarreraDAOImplTest 
-{
+public class CarreraDAOImplTest {
 	CarreraDAO carreraDao;
 	CarreraRepository carreraRepository;
 	

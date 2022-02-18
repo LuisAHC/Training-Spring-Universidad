@@ -28,7 +28,7 @@ class ProfesorDAOImplTest {
     }
 
     @Test
-    void buscarPorNombreYApellido(){
+    void buscarPorNombreYApellido() {
         // When
         profesorDao.buscarPorNombreYApellido(anyString(), anyString());
 
@@ -37,7 +37,7 @@ class ProfesorDAOImplTest {
     }
 
     @Test
-    void buscarPorDni(){
+    void buscarPorDni() {
         // When
         profesorDao.buscarPorDni(anyString());
 
@@ -46,7 +46,7 @@ class ProfesorDAOImplTest {
     }
 
     @Test
-    void buscarPersonaPorApellido(){
+    void buscarPersonaPorApellido() {
         // When
         profesorDao.buscarPersonaPorApellido(anyString());
 
