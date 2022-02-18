@@ -11,24 +11,24 @@ import static java.lang.Long.valueOf;
 public class DatosDummy {
 	public static Carrera carrera01() 
 	{
-		return new Carrera(valueOf(0), "Ingenieria en Sistemas", 50, 5, "nsegura");
+		return new Carrera(valueOf(1), "Ingenieria en Sistemas", 50, 5, "nsegura");
 	}
 
 	public static Carrera carrera02() 
 	{
-		return new Carrera(valueOf(1), "Licenciatura en Sistemas", 45, 4, "nsegura");
+		return new Carrera(valueOf(2), "Licenciatura en Sistemas", 45, 4, "nsegura");
 	}
 
 	public static Carrera carrera03() 
 	{
-		return new Carrera(valueOf(2), "Ingenieria Industrial", 60, 5, "nsegura");
+		return new Carrera(valueOf(3), "Ingenieria Industrial", 60, 5, "nsegura");
 	}
 	
 	public static Persona empleado01() {return new Empleado(null, "25147036", "Lautaro", "Lopez", new Direccion(), new BigDecimal("46750"), TipoEmpleado.ADMINISTRATIVO, "nsegura");}
 	
 	public static Persona empleado02() {return new Empleado(null, "25174630", "Lenadro", "Lopez", new Direccion(), new BigDecimal("46750.70"), TipoEmpleado.MANTENIMIENTO, "nsegura");}
 	
-	public static Persona profesor01() {return new Profesor(null, "4477899", "Martin", "Axacar", new Direccion(), new BigDecimal("600000"), "nsegura");}
+	public static Persona profesor01() {return new Profesor(valueOf(1), "4477899", "Martin", "Axacar", new Direccion("Caminos", "12", "0000", "000", "21211", "Barcelona"), new BigDecimal("600000"), "nsegura");}
 	
 	public static Persona alumno01()
 	{

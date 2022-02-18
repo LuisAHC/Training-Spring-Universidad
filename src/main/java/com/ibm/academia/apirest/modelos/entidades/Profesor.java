@@ -22,7 +22,8 @@ public class Profesor extends Persona implements Serializable {
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch = FetchType.LAZY)
     @JoinTable(
-            name = "profesor_carrera", schema = "universidad",
+            //name = "profesor_carrera", schema = "universidad",
+            name = "profesor_carrera",
             joinColumns = @JoinColumn(name = "profesor_id"),
             inverseJoinColumns = @JoinColumn(name = "carrera_id")
     )
