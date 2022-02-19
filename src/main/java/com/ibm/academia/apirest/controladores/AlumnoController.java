@@ -25,8 +25,7 @@ import com.ibm.academia.apirest.excepciones.NotFoundException;
 
 @RestController
 @RequestMapping("/restapi")
-public class AlumnoController 
-{
+public class AlumnoController {
 	//private final static Logger logger = LoggerFactory.getLogger(AlumnoController.class);
 	
 	@Autowired
@@ -34,15 +33,13 @@ public class AlumnoController
 	private PersonaDAO alumnoDao;
 	
 	@PostMapping("/alumno")
-	public ResponseEntity<?> crearAlumno(@RequestBody Persona alumno)
-	{	
+	public ResponseEntity<?> crearAlumno(@RequestBody Persona alumno) {
 		Persona alumnoGuardado = alumnoDao.guardar(alumno);
 		return new ResponseEntity<Persona>(alumnoGuardado, HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/alumnos/lista")
-	public ResponseEntity<?> obtenerTodos()
-	{
+	public ResponseEntity<?> obtenerTodos() {
 		List<Persona> alumnos = (List<Persona>) alumnoDao.buscarTodos();
 		
 		if(alumnos.isEmpty())
@@ -52,8 +49,7 @@ public class AlumnoController
 	}
 	
 	@GetMapping("/alumno/{alumnoId}")
-    public ResponseEntity<?> obtenerAlumnoPorId(@PathVariable Long alumnoId)
-    {
+    public ResponseEntity<?> obtenerAlumnoPorId(@PathVariable Long alumnoId) {
         Optional<Persona> oAlumno = alumnoDao.buscarPorId(alumnoId);
         
         if(!oAlumno.isPresent()) 
@@ -63,8 +59,7 @@ public class AlumnoController
     }
 	
 	@DeleteMapping("/alumno/eliminar/alumnoId/{alumnoId}")
-	public ResponseEntity<?> eliminarAlumno(@PathVariable Long alumnoId)
-	{
+	public ResponseEntity<?> eliminarAlumno(@PathVariable Long alumnoId) {
 		Optional<Persona> oAlumno = alumnoDao.buscarPorId(alumnoId);
 		
 		if(!oAlumno.isPresent())
@@ -75,15 +70,13 @@ public class AlumnoController
 	}
 	
 	@PutMapping("/alumno/actualizar/alumnoId/{alumnoId}")
-	public ResponseEntity<?> actualizarAlumno(@PathVariable Persona alumnoId, @RequestBody Persona alumno)
-	{
+	public ResponseEntity<?> actualizarAlumno(@PathVariable Long alumnoId, @RequestBody Persona alumno) {
 		Persona alumnoActualizado = ((AlumnoDAO)alumnoDao).actualizar(alumnoId, alumno);
 		return new ResponseEntity<Persona>(alumnoActualizado, HttpStatus.OK);
 	}
 	
 	@PutMapping("/alumno/asociar-carrera")
-	public ResponseEntity<?> asignarCarreraAlumno(@RequestParam Carrera carreraId, @RequestParam(name = "alumno_id") Persona alumnoId)
-	{
+	public ResponseEntity<?> asignarCarreraAlumno(@RequestParam Long carreraId, @RequestParam(name = "alumno_id") Long alumnoId) {
 		Persona alumno = ((AlumnoDAO)alumnoDao).asociarCarreraAlumno(alumnoId, carreraId);
 		return new ResponseEntity<Persona>(alumno, HttpStatus.OK);
 	}

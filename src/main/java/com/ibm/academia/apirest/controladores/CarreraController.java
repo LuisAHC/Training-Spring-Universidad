@@ -1,4 +1,4 @@
-package com.ibm.academia.restapi.universidad.controladores;
+package com.ibm.academia.apirest.controladores;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,6 +8,8 @@ import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
+import com.ibm.academia.apirest.modelos.entidades.Carrera;
+import com.ibm.academia.apirest.servicios.CarreraDAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +25,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ibm.academia.restapi.universidad.excepciones.NotFoundException;
-import com.ibm.academia.restapi.universidad.modelo.dto.CarreraDTO;
-import com.ibm.academia.restapi.universidad.modelo.entidades.Carrera;
-import com.ibm.academia.restapi.universidad.modelo.mapper.CarreraMapper;
-import com.ibm.academia.restapi.universidad.servicios.CarreraDAO;
+import com.ibm.academia.apirest.excepciones.NotFoundException;
+import com.ibm.academia.apirest.modelos.dto.CarreraDTO;
+import com.ibm.academia.apirest.modelos.entidades.Carrera;
+import com.ibm.academia.apirest.modelos.mapper.CarreraMapper;
+import com.ibm.academia.apirest.servicios.CarreraDAO;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -35,8 +37,7 @@ import io.swagger.annotations.ApiResponses;
 
 @RestController
 @RequestMapping("/restapi")
-public class CarreraController 
-{
+public class CarreraController {
 	private final static Logger logger = LoggerFactory.getLogger(CarreraController.class);
 	
 	@Autowired
@@ -53,8 +54,7 @@ public class CarreraController
 		@ApiResponse(code = 404, message = "No hay elementos en la base de datos")
 	})
 	@GetMapping("/carreras/lista")
-	public List<Carrera> listarTodas()
-	{
+	public List<Carrera> listarTodas() {
 		List<Carrera> carreras = (List<Carrera>) carreraDao.buscarTodos();
 		return carreras;
 	}
@@ -67,8 +67,7 @@ public class CarreraController
 	 * @author NDSC - 14-02-2022
 	 */
 	@GetMapping("/carrera/carreraId/{carreraId}")
-	public ResponseEntity<?> buscarPorId(@PathVariable Long carreraId)
-	{
+	public ResponseEntity<?> buscarPorId(@PathVariable Long carreraId) {
 		Optional<Carrera> oCarrera = carreraDao.buscarPorId(carreraId);
 		
 		if(!oCarrera.isPresent())
@@ -78,8 +77,7 @@ public class CarreraController
 	}
 	
 	@PostMapping("/carrera")
-	public ResponseEntity<?> guardar(@Valid @RequestBody Carrera carrera, BindingResult result)
-	{
+	public ResponseEntity<?> guardar(@Valid @RequestBody Carrera carrera, BindingResult result) {
 		Map<String, Object> validaciones = new HashMap<String, Object>();
 		if(result.hasErrors())
 		{
@@ -96,8 +94,7 @@ public class CarreraController
 	}
 	
 	@DeleteMapping("/carrera/eliminar/carreraId/{carreraId}")
-	public ResponseEntity<?> eliminar(@PathVariable Long carreraId)
-	{
+	public ResponseEntity<?> eliminar(@PathVariable Long carreraId) {
 		Optional<Carrera> oCarrera = carreraDao.buscarPorId(carreraId);
 		
 		if(!oCarrera.isPresent())
@@ -108,11 +105,9 @@ public class CarreraController
 	}
 	
 	@PutMapping("/carrera/actualizar/carreraId/{carreraId}")
-	public ResponseEntity<?> actualizar(@PathVariable Long carreraId, @Valid @RequestBody Carrera carrera, BindingResult result)
-	{
+	public ResponseEntity<?> actualizar(@PathVariable Long carreraId, @Valid @RequestBody Carrera carrera, BindingResult result) {
 		Map<String, Object> validaciones = new HashMap<String, Object>();
-		if(result.hasErrors())
-		{
+		if(result.hasErrors()) {
 			List<String> listaErrores = result.getFieldErrors()
 					.stream()
 					.map(errores -> "Campo: '" + errores.getField() + "' " + errores.getDefaultMessage())
@@ -123,12 +118,10 @@ public class CarreraController
 		
 		Carrera carreraActualizada = null;
 		
-		try
-		{
+		try {
 			carreraActualizada = carreraDao.actualizar(carreraId, carrera);
 		}
-		catch (Exception e) 
-		{
+		catch (Exception e) {
 			logger.info(e.getMessage());
 			throw e;
 		}
@@ -143,8 +136,7 @@ public class CarreraController
 	 * @author 16-02-2022
 	 */
 	@GetMapping("/carreras/lista/dto")
-	public ResponseEntity<?> consultarTodasCarreras()
-	{
+	public ResponseEntity<?> consultarTodasCarreras() {
 		List<Carrera> carreras = (List<Carrera>) carreraDao.buscarTodos();
 		
 		if(carreras.isEmpty())
