@@ -36,4 +36,5 @@ public class GenericoDAOImpl <E, R extends CrudRepository<E, Long>> implements G
     public void eliminarPorId(Long id) {
         repository.deleteById(id);
     }
+
 }

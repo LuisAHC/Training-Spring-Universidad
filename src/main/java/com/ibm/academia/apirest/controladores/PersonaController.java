@@ -16,7 +16,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/restapi")
 public class PersonaController {
-    @Qualifier("alumnoDAOImpl")
+    /*@Qualifier("alumnoDAOImpl")
     @Autowired
     private PersonaDAO personaDao;
 
@@ -59,11 +59,6 @@ public class PersonaController {
     }
 
     // U
-    @PutMapping("/persona/actualizar/personaId/{personaId}")
-    public ResponseEntity<?> actualizarAlumno(@PathVariable Long personaId, @RequestBody Persona persona) {
-        Persona personaActualizada = ((AlumnoDAO)personaDao).actualizar(personaId, persona);
-        return new ResponseEntity<Persona>(personaActualizada, HttpStatus.OK);
-    }
 
     // D
     @DeleteMapping("/persona/eliminar/personaId/{personaId}")
@@ -75,5 +70,5 @@ public class PersonaController {
 
         personaDao.eliminarPorId(oPersona.get().getId());
         return new ResponseEntity<String>("Persona ID: " + personaId + " se elimino satisfactoriamente",  HttpStatus.NO_CONTENT);
-    }
+    }*/
 }
