@@ -11,8 +11,8 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @Entity
-//@Table(name = "alumnos", schema = "universidad")
-@Table(name = "alumnos")
+@Table(name = "alumnos", schema = "universidad")
+//@Table(name = "alumnos")
 @PrimaryKeyJoinColumn(name = "persona_id")
 public class Alumno extends Persona implements Serializable{
     @ManyToOne(optional = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
