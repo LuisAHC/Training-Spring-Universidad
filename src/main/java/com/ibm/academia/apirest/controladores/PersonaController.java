@@ -16,10 +16,15 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/restapi")
 public class PersonaController {
-    /*@Qualifier("alumnoDAOImpl")
+    @Qualifier("empleadoDAOImpl")
     @Autowired
     private PersonaDAO personaDao;
 
+    /**
+     * Endpoint para obtener personar por DNI
+     * @param personaDni El DNI de la persona a buscar
+     * @return Retoruna un objeto de tipo Persona
+     */
     @GetMapping("/persona/dni/{personaDni}")
     public ResponseEntity<?> obtenerPersonaPorDni(@PathVariable String personaDni) {
         Optional<Persona> oPersona = personaDao.buscarPorDni(personaDni);
@@ -30,6 +35,11 @@ public class PersonaController {
         return new ResponseEntity<Persona>(oPersona.get(), HttpStatus.OK);
     }
 
+    /**
+     * Endpoint para buscar personas por apellido
+     * @param personaApellido El apellido de las personas a buscar
+     * @return Retorna una lista de Personas cuyo apellido concuerde con el establecido
+     */
     @GetMapping("/persona/apellido/{personaApellido}")
     public ResponseEntity<?> obtenerPersonaPorApellido(@PathVariable String personaApellido) {
         List<Persona> oPersona = (List<Persona>) personaDao.buscarPersonaPorApellido(personaApellido);
@@ -70,5 +80,5 @@ public class PersonaController {
 
         personaDao.eliminarPorId(oPersona.get().getId());
         return new ResponseEntity<String>("Persona ID: " + personaId + " se elimino satisfactoriamente",  HttpStatus.NO_CONTENT);
-    }*/
+    }
 }
